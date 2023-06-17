@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62201DE92A3E0D3F00D5E998 /* TokenGenerator in Resources */ = {isa = PBXBuildFile; fileRef = 62201DE82A3E0D3F00D5E998 /* TokenGenerator */; };
+		62201DED2A3E0DCA00D5E998 /* TokenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62201DEC2A3E0DCA00D5E998 /* TokenExtension.swift */; };
 		FE21CC352A3DF2E0001147B1 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE21CC342A3DF2E0001147B1 /* UIColorExtension.swift */; };
 		FE8027752A3C962C0040B511 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8027742A3C962C0040B511 /* AppDelegate.swift */; };
 		FE8027772A3C962C0040B511 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8027762A3C962C0040B511 /* SceneDelegate.swift */; };
@@ -18,10 +20,12 @@
 		FE80278F2A3C9A870040B511 /* OpenSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE80278C2A3C9A870040B511 /* OpenSans-Medium.ttf */; };
 		FE8027902A3C9A870040B511 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE80278D2A3C9A870040B511 /* OpenSans-Regular.ttf */; };
 		FE8027912A3C9A870040B511 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE80278E2A3C9A870040B511 /* OpenSans-Bold.ttf */; };
-		FE8027932A3C9C1F0040B511 /* TokenGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8027922A3C9BB80040B511 /* TokenGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		62201DE82A3E0D3F00D5E998 /* TokenGenerator */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = TokenGenerator; sourceTree = "<group>"; };
+		62201DEC2A3E0DCA00D5E998 /* TokenExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenExtension.swift; sourceTree = "<group>"; };
+		62201DEE2A3E110200D5E998 /* SampleScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleScript.swift; sourceTree = "<group>"; };
 		FE21CC342A3DF2E0001147B1 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		FE8027712A3C962C0040B511 /* SwiftCodeGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCodeGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE8027742A3C962C0040B511 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				FE80278A2A3C9A500040B511 /* Assets */,
+				62201DEC2A3E0DCA00D5E998 /* TokenExtension.swift */,
 				FE8027742A3C962C0040B511 /* AppDelegate.swift */,
 				FE8027762A3C962C0040B511 /* SceneDelegate.swift */,
 				FE8027782A3C962C0040B511 /* ViewController.swift */,
@@ -79,6 +84,8 @@
 				FE8027882A3C96AD0040B511 /* Token.json */,
 				FE8027922A3C9BB80040B511 /* TokenGenerator.swift */,
 				FE21CC342A3DF2E0001147B1 /* UIColorExtension.swift */,
+				62201DE82A3E0D3F00D5E998 /* TokenGenerator */,
+				62201DEE2A3E110200D5E998 /* SampleScript.swift */,
 			);
 			path = SwiftCodeGenerator;
 			sourceTree = "<group>";
@@ -165,6 +172,7 @@
 				FE80277C2A3C962C0040B511 /* Main.storyboard in Resources */,
 				FE80278F2A3C9A870040B511 /* OpenSans-Medium.ttf in Resources */,
 				FE8027902A3C9A870040B511 /* OpenSans-Regular.ttf in Resources */,
+				62201DE92A3E0D3F00D5E998 /* TokenGenerator in Resources */,
 				FE8027892A3C96AD0040B511 /* Token.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -178,9 +186,9 @@
 			files = (
 				FE21CC352A3DF2E0001147B1 /* UIColorExtension.swift in Sources */,
 				FE8027792A3C962C0040B511 /* ViewController.swift in Sources */,
+				62201DED2A3E0DCA00D5E998 /* TokenExtension.swift in Sources */,
 				FE8027752A3C962C0040B511 /* AppDelegate.swift in Sources */,
 				FE8027772A3C962C0040B511 /* SceneDelegate.swift in Sources */,
-				FE8027932A3C9C1F0040B511 /* TokenGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
