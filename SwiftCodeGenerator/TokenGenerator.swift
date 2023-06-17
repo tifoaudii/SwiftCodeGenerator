@@ -7,6 +7,7 @@
 
 import Foundation
 
+@main
 struct TokenGenerator {
     
     private enum TokenType: String {
@@ -47,11 +48,27 @@ struct TokenGenerator {
             return
         }
         
-        
+        var tokenExtensionArray: [String] = []
         for tokenDictionary in dictionary {
             let tokenValue: [String : Any] = tokenDictionary.value as! [String : Any]
-            let extensionContent = traverse(dictionary: tokenValue, parent: tokenDictionary.key)
-            let tokenExtension = createExtension(from: TokenType(value: tokenDictionary.key), content: extensionContent)
+            let extensionContent = traverse(dictionary: tokenValue, parent: "")
+            tokenExtensionArray.append(createExtension(from: TokenType(value: tokenDictionary.key.lowercased()), content: extensionContent))
+        }
+        let tokenExtension =
+        """
+        import UIKit
+        
+        \(tokenExtensionArray.joined(separator: "\n"))
+        """
+        
+        let fileName: String = "TokenExtension.swift"
+        let destinationUrl = "\(FileManager.default.currentDirectoryPath)/\(fileName)"
+        
+        do {
+            try tokenExtension.write(toFile: destinationUrl, atomically: true, encoding: .utf8)
+            print("Token Extension is successfully generated:\n \(destinationUrl)\n")
+        } catch {
+            print(error)
         }
     }
     
@@ -60,27 +77,37 @@ struct TokenGenerator {
         if dictionary.keys.contains("type") {
             let type = dictionary["type"] as! String
             let tokenType: TokenType = TokenType(value: type)
-            
-            return createLet(dataType: tokenType.dataType, variableName: parent, value: <#T##String#>)
+            switch tokenType {
+            case .color:
+                let value = dictionary["value"] as! String
+                let variableValue =  "UIColor.hexColor(\"\(value)\") ?? .black"
+                return createVariable(dataType: tokenType.dataType, variableName: parent.camelCased(with: "."), value: variableValue)
+            case .typography:
+                let fontName = dictionary["fontName"] as! String
+                let size = dictionary["size"] as! String
+                let value = "UIFont(name: \"\(fontName)\", size: \(size)) ?? .systemFont(ofSize: \(size))"
+                return createVariable(dataType: tokenType.dataType, variableName: parent.camelCased(with: "."), value: value)
+            case .any:
+                return ""
+            }
         }
         
-        return ""
-    }
-    
-    private static func createValue(from tokenType: TokenType, value: String) -> String {
-        switch tokenType {
-        case .color:
-            return "UIColor.hexColor(\(value))"
-        case .typography:
-            return "UIFont(name"
-        case .any:
-            return ""
+        var contentArray: [String] = []
+        for tokenDictionary in dictionary {
+            let tokenValue: [String : Any] = tokenDictionary.value as! [String : Any]
+            let childParent: String = tokenDictionary.key.appending(".")
+            let parent: String = parent.appending(childParent)
+            contentArray.append(traverse(dictionary: tokenValue, parent: parent))
         }
+        
+        return contentArray.joined(separator: "\n")
     }
     
-    private static func createLet(dataType: String, variableName: String, value: String) -> String {
+    private static func createVariable(dataType: String, variableName: String, value: String) -> String {
         """
-        let \(variableName): \(dataType) = \(value)\n
+        static var \(variableName): \(dataType) {
+        \(value.indent(with: "  "))
+        }
         """
     }
     
@@ -94,10 +121,7 @@ struct TokenGenerator {
 }
 
 extension String {
-    func getFirstWord(separator: Character) -> String {
-        String(describing: self.split(separator: ".").first ?? "")
-    }
-    
+
     func indent(with indentation: String) -> String {
         return self
             .components(separatedBy: "\n")
@@ -111,13 +135,5 @@ extension String {
             .enumerated()
             .map { $0.offset > 0 ? $0.element.capitalized : $0.element.lowercased() }
             .joined()
-    }
-    
-    func capitalizingFirstLetter() -> String {
-        return prefix(1).capitalized + dropFirst()
-    }
-    
-    mutating func capitalizeFirstLetter() {
-        self = self.capitalizingFirstLetter()
     }
 }

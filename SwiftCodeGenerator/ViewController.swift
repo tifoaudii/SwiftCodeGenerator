@@ -15,7 +15,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        TokenGenerator.main()
+        titleLabel.font = .title
+        captionLabel.font = .caption
+        bodyLabel.font = .body
+        
+        titleLabel.textColor = .redDark
+        captionLabel.textColor = .blueRegular
+        bodyLabel.textColor = .greenLight
     }
 
 
