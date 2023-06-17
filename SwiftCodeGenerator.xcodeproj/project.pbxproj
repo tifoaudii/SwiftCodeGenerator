@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE21CC352A3DF2E0001147B1 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE21CC342A3DF2E0001147B1 /* UIColorExtension.swift */; };
 		FE8027752A3C962C0040B511 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8027742A3C962C0040B511 /* AppDelegate.swift */; };
 		FE8027772A3C962C0040B511 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8027762A3C962C0040B511 /* SceneDelegate.swift */; };
 		FE8027792A3C962C0040B511 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8027782A3C962C0040B511 /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FE21CC342A3DF2E0001147B1 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		FE8027712A3C962C0040B511 /* SwiftCodeGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCodeGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE8027742A3C962C0040B511 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE8027762A3C962C0040B511 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				FE8027822A3C962E0040B511 /* Info.plist */,
 				FE8027882A3C96AD0040B511 /* Token.json */,
 				FE8027922A3C9BB80040B511 /* TokenGenerator.swift */,
+				FE21CC342A3DF2E0001147B1 /* UIColorExtension.swift */,
 			);
 			path = SwiftCodeGenerator;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE21CC352A3DF2E0001147B1 /* UIColorExtension.swift in Sources */,
 				FE8027792A3C962C0040B511 /* ViewController.swift in Sources */,
 				FE8027752A3C962C0040B511 /* AppDelegate.swift in Sources */,
 				FE8027772A3C962C0040B511 /* SceneDelegate.swift in Sources */,
